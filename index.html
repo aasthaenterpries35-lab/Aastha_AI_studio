@@ -1,0 +1,244 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AASTHA ENTERPRISE | Precision CNC Artistry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .liquid-glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
+    .gold-etched-border {
+        border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .text-shadow-gold {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    body {
+        min-height: max(884px, 100dvh);
+    }
+</style>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#d4af37",
+                    "surface": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "secondary": "#c7c6c6",
+                    "background": "#050505",
+                },
+                fontFamily: {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body class="bg-[#050505] text-[#e5e2e1] font-body selection:bg-[#d4af37]/30 min-h-screen flex flex-col">
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#050505]/60 backdrop-blur-lg border-b border-[#D4AF37]/20 shadow-[0_4px_24px_rgba(212,175,55,0.04)]">
+    <div class="flex items-center justify-between px-6 h-16 w-full">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-[#D4AF37] text-2xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+            <h1 class="text-lg font-black tracking-widest text-[#D4AF37] uppercase font-headline">AASTHA ENTERPRISE</h1>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-[#D4AF37] font-headline text-sm font-bold tracking-widest transition-colors" href="index.html">HOME</a>
+            <a class="text-gray-400 hover:text-[#D4AF37] font-headline text-sm font-bold tracking-widest transition-colors uppercase" href="services.html">Services</a>
+            <a class="text-gray-400 hover:text-[#D4AF37] font-headline text-sm font-bold tracking-widest transition-colors uppercase" href="ai-studio.html">Studio</a>
+            <a class="text-gray-400 hover:text-[#D4AF37] font-headline text-sm font-bold tracking-widest transition-colors uppercase" href="contact.html">Contact</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <button onclick="openSearchModal()" class="material-symbols-outlined text-gray-400 hover:text-[#D4AF37] transition-colors" data-icon="search">search</button>
+        </div>
+    </div>
+</header>
+
+<main class="relative flex-grow pt-16 pb-24">
+    <!-- Hero Section -->
+    <section class="relative w-full h-[751px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Precision CNC" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8sWmZbtNYN7Z2byrT7hnDHjtIQPg4vCWtzAemx1I7XFZwmTpMZhQWlKNMIBFb4AJFSutwBqWVPn7pM00hQq_ANr1NVV-vNIJdu850WcdBdBjYpuhacWjNgvoIsm_j87LTcIe17hm-bsaIgj9KQrl2qYqci3tmG5toaCpnb2fTZMS-7Z-l3KqmGtFNbygPk1F97m1BLlaWDlt9gSmX2HgiqknU9uhs8RQQsFm4njvDgiPJazqsS9OYpDPe6hY0Q0c_fWPsDhr6kX27">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-transparent to-transparent"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <h2 class="text-7xl md:text-9xl font-headline font-bold text-[#e5e2e1] tracking-tighter mb-4 leading-none text-shadow-gold">
+                Precision <br> <span class="text-[#D4AF37]">Crafted.</span>
+            </h2>
+            <p class="text-xl md:text-2xl text-[#c7c6c6] font-light max-w-2xl mx-auto mb-12 tracking-wide">
+                Advanced CNC Artistry for high-complexity aerospace and medical components.
+            </p>
+            <!-- Action Row -->
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <a class="group relative px-10 py-5 w-full md:w-auto overflow-hidden rounded-xl transition-all duration-300 liquid-glass gold-etched-border hover:bg-[#D4AF37]/10 active:scale-95" href="services.html">
+                    <span class="relative z-10 text-[#D4AF37] font-headline font-bold tracking-widest uppercase text-sm">View Services</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4AF37]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                </a>
+                <a class="group relative px-10 py-5 w-full md:w-auto overflow-hidden rounded-xl transition-all duration-300 liquid-glass gold-etched-border hover:bg-[#D4AF37]/10 active:scale-95" href="ai-studio.html">
+                    <span class="relative z-10 text-[#D4AF37] font-headline font-bold tracking-widest uppercase text-sm">Try AI Studio</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4AF37]/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Highlight Section -->
+    <section class="px-6 py-24 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Large Feature Card -->
+            <div class="md:col-span-8 group relative overflow-hidden rounded-3xl liquid-glass gold-etched-border p-8 min-h-[400px]">
+                <div class="relative z-10 h-full flex flex-col justify-end">
+                    <span class="text-[#D4AF37] font-label text-xs font-bold tracking-[0.3em] uppercase mb-4">Core Capability</span>
+                    <h3 class="text-4xl font-headline font-bold mb-4">5-Axis Simultaneous Milling</h3>
+                    <p class="text-[#c7c6c6] max-w-md text-sm leading-relaxed">Achieving sub-micron tolerances on complex geometries that others deem impossible. Our artisan approach combines software precision with manual finishing.</p>
+                </div>
+                <div class="absolute top-0 right-0 p-8">
+                    <span class="material-symbols-outlined text-6xl text-[#D4AF37]/20 group-hover:text-[#D4AF37]/40 transition-colors" data-icon="grid_view">grid_view</span>
+                </div>
+            </div>
+            <!-- Small Stat Card -->
+            <div class="md:col-span-4 liquid-glass gold-etched-border rounded-3xl p-8 flex flex-col justify-center items-center text-center">
+                <span class="text-5xl font-headline font-bold text-[#D4AF37] mb-2">0.001mm</span>
+                <span class="text-[#c7c6c6] font-label text-xs uppercase tracking-widest">Tolerance Precision</span>
+                <div class="mt-8 w-24 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent"></div>
+            </div>
+            <!-- Material Card -->
+            <div class="md:col-span-4 liquid-glass gold-etched-border rounded-3xl p-8">
+                <h4 class="text-xl font-headline font-bold mb-6">Expertise</h4>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-[#3a3939] text-[#e5e2e1] text-[10px] font-bold uppercase tracking-tighter rounded-full">Wood</span>
+                    <span class="px-3 py-1 bg-[#3a3939] text-[#e5e2e1] text-[10px] font-bold uppercase tracking-tighter rounded-full">MDF</span>
+                    <span class="px-3 py-1 bg-[#3a3939] text-[#e5e2e1] text-[10px] font-bold uppercase tracking-tighter rounded-full">WPC</span>
+                    <span class="px-3 py-1 bg-[#3a3939] text-[#e5e2e1] text-[10px] font-bold uppercase tracking-tighter rounded-full">PVC</span>
+                </div>
+            </div>
+            <!-- Process Card -->
+            <div class="md:col-span-8 group relative overflow-hidden rounded-3xl liquid-glass gold-etched-border p-8 min-h-[300px]">
+                <div class="absolute inset-0 z-0 opacity-20 grayscale transition-all duration-500 group-hover:opacity-40">
+                    <img alt="Machining process" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGVcH1hLNaTEeX130zfRMKpj3GIKe4UMY9IbIEpkdGYi9H8JW-DzfggiihcZ7E6TXieLado37gptMXor9kwUtw90LJhgTIzsGH3P4YXcOkXGXOr6vm5I_lIhOExpEQdeyvcwLZp8GWL1CWM0Sf_T0l6S_0GR5EVMDkemcCELFjWTgyUSk8TCnTDsDAgPgSo5FwXoQJuuNoOf_10hknTY6nJ6gsxlV5NfAX07By75rp-uTe3fxJBl1WmGGoGjk3tNcaEwvwWPSbba3Y">
+                </div>
+                <div class="relative z-10 h-full flex flex-col justify-center">
+                    <h3 class="text-3xl font-headline font-bold mb-2">The Obsidian Standard</h3>
+                    <p class="text-[#c7c6c6] max-w-sm text-sm">Every project undergoes a 12-point optical inspection before leaving our floor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Bar / Gauge Section -->
+    <section class="px-6 py-12 border-t border-[#D4AF37]/10 bg-[#050505]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-6">
+                <div class="relative w-16 h-16 flex items-center justify-center">
+                    <svg class="w-full h-full -rotate-90">
+                        <circle class="text-[#4d4635]/20" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+                        <circle class="text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.5)]" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175.9" stroke-dashoffset="40" stroke-width="4"></circle>
+                    </svg>
+                    <span class="absolute text-[10px] font-bold font-headline text-[#D4AF37]">94%</span>
+                </div>
+                <div>
+                    <span class="block text-xs font-label text-[#c7c6c6] uppercase tracking-widest mb-1">Production Load</span>
+                    <span class="block text-sm font-headline font-bold text-[#e5e2e1]">Optimized Output</span>
+                </div>
+            </div>
+            <div class="h-8 w-[1px] bg-[#D4AF37]/20 hidden md:block"></div>
+            <div class="text-right">
+                <span class="block text-xs font-label text-[#c7c6c6] uppercase tracking-widest mb-1">Est. Delivery&nbsp; &nbsp;</span>
+                <span class="block text-sm font-headline font-bold text-[#D4AF37]">As Per Work Load</span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-[#050505]/40 backdrop-blur-xl border-t border-[#D4AF37]/25 shadow-[0_-8px_32px_rgba(0,0,0,0.5)] z-50 rounded-t-3xl md:hidden">
+    <!-- Active State: Home -->
+    <a class="flex flex-col items-center justify-center bg-[#D4AF37]/10 text-[#D4AF37] rounded-xl p-3 ring-1 ring-[#D4AF37]/30 transition-all active:scale-90 duration-200 ease-out" href="index.html">
+        <span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="services.html">
+        <span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Services</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="ai-studio.html">
+        <span class="material-symbols-outlined" data-icon="memory">memory</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Studio</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="contact.html">
+        <span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Contact</span>
+    </a>
+</nav>
+
+<!-- Search Modal -->
+<div id="search-modal" class="fixed inset-0 z-[100] hidden items-start justify-center pt-24 px-4">
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeSearchModal()"></div>
+    <div class="relative w-full max-w-lg liquid-glass rounded-3xl border border-[#D4AF37]/30 shadow-2xl p-6 animate-fade-in">
+        <div class="flex items-center gap-4 bg-white/5 rounded-2xl p-4 border border-white/10 focus-within:border-[#D4AF37]/50 transition-colors">
+            <span class="material-symbols-outlined text-[#D4AF37]">search</span>
+            <input type="text" id="search-input" class="bg-transparent border-none w-full text-white focus:ring-0 placeholder-gray-500 font-body outline-none" placeholder="Search patterns, materials, services..." onkeypress="handleSearch(event)">
+        </div>
+        <div id="search-results" class="mt-6 hidden">
+            <p class="text-[10px] uppercase tracking-[0.2em] text-[#D4AF37] mb-3">Results</p>
+            <div id="search-results-list" class="space-y-3"></div>
+        </div>
+    </div>
+</div>
+<script>
+function openSearchModal() {
+    const modal = document.getElementById('search-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    setTimeout(() => document.getElementById('search-input').focus(), 100);
+}
+function closeSearchModal() {
+    const modal = document.getElementById('search-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+function handleSearch(e) {
+    if (e.key === 'Enter') {
+        const query = e.target.value.toLowerCase();
+        const resultsDiv = document.getElementById('search-results');
+        const resultsList = document.getElementById('search-results-list');
+        resultsDiv.classList.remove('hidden');
+        
+        let html = '';
+        if (query.includes('wood') || query.includes('mdf') || query.includes('wpc') || query.includes('pvc')) {
+            html += `<a href="services.html" class="block p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/50 transition-colors"><div class="text-[#D4AF37] font-bold font-headline">Materials</div><div class="text-sm text-gray-400 font-light mt-1">View compatible materials in our Services</div></a>`;
+        }
+        if (query.includes('jali')) {
+            html += `<a href="services.html" class="block p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/50 transition-colors"><div class="text-[#D4AF37] font-bold font-headline">Jali Cutting</div><div class="text-sm text-gray-400 font-light mt-1">View our Jali cutting services</div></a>`;
+        }
+        if (query.includes('ai') || query.includes('generate') || query.includes('design')) {
+            html += `<a href="ai-studio.html" class="block p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/50 transition-colors"><div class="text-[#D4AF37] font-bold font-headline">AI Studio</div><div class="text-sm text-gray-400 font-light mt-1">Try our new AI design generation tool</div></a>`;
+        }
+        if (html === '') {
+            html = `<div class="p-4 text-center text-gray-400 text-sm">No precise matches found for "${query}". Try searching for materials or AI.</div>`;
+        }
+        resultsList.innerHTML = html;
+    }
+}
+</script>
+<style>
+    @keyframes fade-in-down { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fade-in-down 0.3s ease-out forwards; }
+</style>
+
+</body></html>

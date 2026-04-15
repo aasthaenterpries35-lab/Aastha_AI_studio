@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | AASTHA ENTERPRISE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+    body {
+        min-height: max(884px, 100dvh);
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .liquid-glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    .text-gradient-gold {
+        background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+    }
+</style>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#d4af37",
+                    "surface": "#131313",
+                    "on-surface": "#e5e2e1",
+                    "secondary": "#c7c6c6",
+                    "background": "#050505",
+                },
+                fontFamily: {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body class="bg-[#050505] text-[#e5e2e1] font-body selection:bg-[#d4af37]/30 min-h-screen flex flex-col">
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#050505]/60 backdrop-blur-lg border-b border-[#D4AF37]/20 shadow-[0_4px_24px_rgba(212,175,55,0.04)] flex items-center justify-between px-6 h-16 w-full">
+    <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-[#D4AF37] text-2xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+        <span class="font-headline text-lg font-black tracking-widest text-[#D4AF37] uppercase">AASTHA ENTERPRISE</span>
+    </div>
+    <nav class="hidden md:flex gap-8 items-center font-headline font-bold tracking-widest text-sm">
+        <a class="text-gray-400 hover:text-[#D4AF37] transition-colors uppercase" href="index.html">HOME</a>
+        <a class="text-gray-400 hover:text-[#D4AF37] transition-colors uppercase" href="services.html">SERVICES</a>
+        <a class="text-gray-400 hover:text-[#D4AF37] transition-colors uppercase" href="ai-studio.html">STUDIO</a>
+        <a class="text-[#D4AF37] transition-colors uppercase" href="contact.html">CONTACT</a>
+    </nav>
+</header>
+
+<main class="flex-grow pt-24 pb-32 px-6 flex flex-col items-center justify-center max-w-4xl mx-auto w-full">
+    <!-- Interactive Map Visual Section -->
+    <div class="w-full mb-12 relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-[#d4af37]/20 to-transparent blur-xl opacity-50 group-hover:opacity-100 transition duration-1000"></div>
+        <div class="relative liquid-glass rounded-3xl overflow-hidden aspect-[16/9] shadow-2xl">
+            <img alt="Map location" class="w-full h-full object-cover opacity-40 grayscale contrast-125" data-location="Vadodara" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv0C9IlwWe6qFv7V7Td_bvjZsEYotbRjOpmiBZ2UeRCiXbLvRkmaepOd3HcnbDA3HuYuvBZYfkeXYomCr7U91mknSJGhSbHS4ktCPLjLtKWMOSoevvoy9NUfVWwo_7jFgp0q98HzAN8lLqQaD2BTzE2rcBcVkJpYbLOFcevY6nNUAP4NYATEyrp9wBZ62x-FGOTCh4cDLYV2bqvFl8OHxha1brWBiuBbosdpGnXZZpy0AYbNDcd201b6Gw8urY-rbvkBVbUJY0mujU"/>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="relative">
+                    <div class="absolute inset-0 animate-ping rounded-full bg-[#d4af37]/20 scale-150"></div>
+                    <span class="material-symbols-outlined text-7xl text-[#D4AF37] drop-shadow-[0_0_15px_rgba(212,175,55,0.6)]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                </div>
+            </div>
+            <div class="absolute bottom-4 left-4 p-4 liquid-glass rounded-xl border-white/5">
+                <p class="font-label text-[10px] uppercase tracking-[0.2em] text-[#c7c6c6]/60 mb-1">Coordinates</p>
+                <p class="font-headline text-sm font-bold tracking-tight text-[#d4af37]">22.2987° N, 73.2356° E</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <section class="w-full text-center space-y-10">
+        <div class="space-y-4">
+            <h2 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tighter text-[#e5e2e1]">
+                VISIT OUR <span class="text-gradient-gold">STUDIO</span>
+            </h2>
+            <div class="h-1 w-20 bg-[#d4af37]/40 mx-auto rounded-full"></div>
+        </div>
+        
+        <div class="liquid-glass p-8 md:p-12 rounded-[2rem] max-w-2xl mx-auto border-white/5 relative">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#D4AF37] text-[#3C2F00] text-[10px] font-bold tracking-[0.3em] uppercase rounded-full">
+                Headquarters
+            </div>
+            <p class="font-body text-xl md:text-2xl font-light leading-relaxed text-[#c7c6c6] tracking-tight">
+                Anur Estate, Opp. MM Vohra Showroom, Near Jagdish Hospital, Somatalav, <span class="text-[#e5e2e1] font-semibold">Vadodara - 390025.</span>
+            </p>
+        </div>
+
+        <!-- Full-width Gold Button -->
+        <div class="w-full max-w-md mx-auto pt-4">
+            <button onclick="showContactModal()" class="group relative w-full overflow-hidden rounded-full bg-[#D4AF37] py-5 px-8 transition-all active:scale-[0.98] shadow-[0_0_40px_rgba(212,175,55,0.15)]">
+                <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                <div class="relative flex items-center justify-center gap-3">
+                    <span class="material-symbols-outlined text-[#3C2F00] font-bold">call</span>
+                    <span class="font-headline font-black text-lg uppercase tracking-[0.15em] text-[#3C2F00]">Call Studio</span>
+                </div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Technical Specs / Outreach Detail -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-16 w-full max-w-3xl">
+        <div class="p-4 rounded-2xl border border-white/5 bg-white/[0.02]">
+            <p class="font-label text-[10px] uppercase tracking-widest text-[#c7c6c6]/50 mb-1">Inquiries</p>
+            <p class="font-body text-sm font-medium text-[#e5e2e1]">aasthaenterpries35@gmail.com</p>
+        </div>
+        <div class="p-4 rounded-2xl border border-white/5 bg-white/[0.02]">
+            <p class="font-label text-[10px] uppercase tracking-widest text-[#c7c6c6]/50 mb-1">Hours</p>
+            <p class="font-body text-sm font-medium text-[#e5e2e1]">08:00 — 20:00 IST</p>
+        </div>
+        <div class="p-4 rounded-2xl border border-white/5 bg-white/[0.02] col-span-2 md:col-span-1">
+            <p class="font-label text-[10px] uppercase tracking-widest text-[#c7c6c6]/50 mb-1">Response Time</p>
+            <p class="font-body text-sm font-medium text-[#e5e2e1]">&lt; 24 Hours</p>
+        </div>
+    </div>
+</main>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="fixed inset-0 z-[100] hidden items-center justify-center px-4">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeContactModal()"></div>
+    
+    <!-- Modal Content -->
+    <div class="relative w-full max-w-sm liquid-glass rounded-[2rem] p-8 border border-[#D4AF37]/30 shadow-[0_0_50px_rgba(212,175,55,0.15)] animate-fade-in text-center">
+        <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30">
+            <span class="material-symbols-outlined text-3xl text-[#D4AF37]">person</span>
+        </div>
+        
+        <p class="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] mb-1">Director</p>
+        <h3 class="font-headline text-2xl font-bold text-white mb-6">Mr. Bharatbhai Patel</h3>
+        
+        <div class="relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-4 flex items-center justify-center gap-3 block">
+            <span class="material-symbols-outlined text-[#D4AF37]">call</span>
+            <span class="font-body text-lg font-bold text-[#e5e2e1] tracking-widest">+91 90169 06992</span>
+        </div>
+    </div>
+</div>
+<script>
+    function showContactModal() {
+        const modal = document.getElementById('contact-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+    function closeContactModal() {
+        const modal = document.getElementById('contact-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+</script>
+<style>
+    @keyframes fade-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .animate-fade-in { animation: fade-in 0.3s ease-out forwards; }
+</style>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-[#050505]/40 backdrop-blur-xl border-t border-[#D4AF37]/25 shadow-[0_-8px_32px_rgba(0,0,0,0.5)] z-50 rounded-t-3xl md:hidden">
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="index.html">
+        <span class="material-symbols-outlined" data-icon="home">home</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="services.html">
+        <span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Services</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="ai-studio.html">
+        <span class="material-symbols-outlined" data-icon="memory">memory</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Studio</span>
+    </a>
+    <!-- Active State: Contact -->
+    <a class="flex flex-col items-center justify-center bg-[#D4AF37]/10 text-[#D4AF37] rounded-xl p-3 ring-1 ring-[#D4AF37]/30 transition-all active:scale-90 duration-200 ease-out" href="contact.html">
+        <span class="material-symbols-outlined" data-icon="contact_support" style="font-variation-settings: 'FILL' 1;">contact_support</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Contact</span>
+    </a>
+</nav>
+
+</body></html>

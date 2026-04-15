@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Studio | AASTHA ENTERPRISE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+    body {
+        background-color: #050505;
+        color: #e5e2e1;
+        font-family: 'Manrope', sans-serif;
+        min-height: max(884px, 100dvh);
+    }
+    .glass-container {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+</style>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#d4af37",
+                },
+                fontFamily: {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+                }
+            }
+        }
+    }
+</script>
+<script>
+    function switchTab(tab) {
+        if (tab === 'text') {
+            document.getElementById('text-input-area').classList.remove('hidden');
+            document.getElementById('image-input-area').classList.add('hidden');
+            document.getElementById('tab-text').classList.add('border-[#D4AF37]', 'text-[#D4AF37]');
+            document.getElementById('tab-text').classList.remove('border-transparent', 'text-gray-500');
+            document.getElementById('tab-image').classList.remove('border-[#D4AF37]', 'text-[#D4AF37]');
+            document.getElementById('tab-image').classList.add('border-transparent', 'text-gray-500');
+        } else {
+            document.getElementById('text-input-area').classList.add('hidden');
+            document.getElementById('image-input-area').classList.remove('hidden');
+            document.getElementById('tab-image').classList.add('border-[#D4AF37]', 'text-[#D4AF37]');
+            document.getElementById('tab-image').classList.remove('border-transparent', 'text-gray-500');
+            document.getElementById('tab-text').classList.remove('border-[#D4AF37]', 'text-[#D4AF37]');
+            document.getElementById('tab-text').classList.add('border-transparent', 'text-gray-500');
+        }
+    }
+
+    let selectedMaterial = 'wood';
+    function selectMaterial(mat) {
+        ['wood', 'mdf', 'wpc', 'pvc'].forEach(m => {
+            const el = document.getElementById('mat-' + m);
+            el.className = 'flex-none px-6 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 text-xs font-bold uppercase tracking-wider hover:border-white/30 transition-all cursor-pointer';
+        });
+        const activeEl = document.getElementById('mat-' + mat);
+        activeEl.className = 'flex-none px-6 py-2 rounded-full border border-[#D4AF37] bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold uppercase tracking-wider cursor-pointer';
+        selectedMaterial = mat;
+    }
+
+    function handleImageUpload(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('upload-preview').innerHTML = `<img src="${e.target.result}" class="h-full w-full object-cover rounded-xl" />`;
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function generateDesign() {
+        const textInput = document.querySelector('textarea').value || 'modern parametric wavy texture';
+        const promptParams = encodeURIComponent(`high quality wood cnc engraving pattern, carved on ${selectedMaterial}, ${textInput}, hyperrealistic 3d render, dramatic lighting, clean sharp edges`);
+        
+        // Show loading state
+        const btn = document.getElementById('generate-btn');
+        btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="animation: spin 1s linear infinite;">sync</span> Generating...';
+        btn.disabled = true;
+        
+        const imgUrl = `https://image.pollinations.ai/prompt/${promptParams}?width=800&height=800&nologo=true&seed=${Math.floor(Math.random() * 1000)}`;
+        
+        const img = new Image();
+        img.onload = () => {
+            btn.innerHTML = '<span class="material-symbols-outlined">auto_awesome</span> Generate Design';
+            btn.disabled = false;
+            
+            document.getElementById('preview-image').src = imgUrl;
+            document.getElementById('preview-section').classList.remove('hidden');
+            document.getElementById('preview-section').classList.add('animate-fade-in');
+            document.getElementById('preview-section').scrollIntoView({behavior: 'smooth', block: 'center'});
+        }
+        img.onerror = () => {
+            btn.innerHTML = '<span class="material-symbols-outlined">auto_awesome</span> Generate Design';
+            btn.disabled = false;
+            alert("Generation failed. Please try again.");
+        }
+        img.src = imgUrl;
+    }
+
+    function requestQuote() {
+        alert("Quote request containing your AI-generated design and material preferences has been securely submitted! Our team will contact you within 24 hours.");
+    }
+</script>
+<style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fade-in 0.8s ease-out forwards; }
+</style>
+</head>
+<body class="bg-[#050505] min-h-screen pb-24 flex flex-col">
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#050505]/60 backdrop-blur-lg border-b border-[#D4AF37]/20 flex items-center justify-between px-6 h-16 w-full shadow-[0_4px_24px_rgba(212,175,55,0.04)]">
+    <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-[#D4AF37]" data-icon="precision_manufacturing">precision_manufacturing</span>
+        <h1 class="text-lg font-black tracking-widest text-[#D4AF37] uppercase font-['Space_Grotesk']">AASTHA ENTERPRISE</h1>
+    </div>
+    <nav class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] font-bold tracking-widest text-sm">
+        <a class="text-gray-400 hover:text-[#D4AF37] transition-colors uppercase" href="index.html">HOME</a>
+        <a class="text-gray-400 hover:text-[#D4AF37] transition-colors uppercase" href="services.html">Services</a>
+        <a class="text-[#D4AF37] transition-colors uppercase" href="ai-studio.html">Studio</a>
+        <a class="text-gray-400 hover:text-[#D4AF37] transition-colors uppercase" href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main class="flex-grow pt-24 px-6 max-w-4xl mx-auto w-full">
+    <!-- AI Studio Header -->
+    <div class="mb-8">
+        <span class="font-['Space_Grotesk'] text-[10px] uppercase tracking-[0.4em] text-[#D4AF37] mb-2 block">Computational Design</span>
+        <h2 class="font-['Space_Grotesk'] text-4xl font-bold tracking-tight text-white mb-2">Aastha AI Designer</h2>
+        <div class="h-1 w-12 bg-[#D4AF37]"></div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="flex space-x-8 mb-8 border-b border-white/5">
+        <button id="tab-text" onclick="switchTab('text')" class="pb-4 text-sm font-semibold tracking-widest uppercase border-b-2 border-[#D4AF37] text-[#D4AF37] flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">text_fields</span> Text to Design
+        </button>
+        <button id="tab-image" onclick="switchTab('image')" class="pb-4 text-sm font-semibold tracking-widest uppercase border-b-2 border-transparent text-gray-500 hover:text-white transition-colors flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">image</span> Image to Design
+        </button>
+    </div>
+
+    <!-- Generator Section -->
+    <div class="space-y-10">
+        <!-- Input Areas -->
+        <section class="space-y-6">
+            <!-- Text Input Area -->
+            <div id="text-input-area" class="glass-container rounded-2xl p-1 overflow-hidden transition-all focus-within:ring-1 focus-within:ring-[#D4AF37]/50">
+                <textarea class="w-full bg-transparent border-none text-white placeholder-gray-600 p-6 min-h-[160px] resize-none focus:ring-0 font-body text-lg" placeholder="Describe your CNC pattern... (e.g., Parametric wavy lines inspired by desert dunes for MDF or WPC panels)"></textarea>
+            </div>
+            
+            <!-- Image Input Area -->
+            <div id="image-input-area" class="hidden glass-container rounded-2xl p-6 flex flex-col items-center justify-center min-h-[160px] border-dashed border-2 border-white/10 hover:border-[#D4AF37]/50 transition-colors relative cursor-pointer">
+                <input type="file" onchange="handleImageUpload(event)" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                <div id="upload-preview" class="flex flex-col items-center text-center absolute inset-4 pointer-events-none flex items-center justify-center">
+                    <span class="material-symbols-outlined text-4xl text-gray-500 mb-2">cloud_upload</span>
+                    <p class="text-sm text-gray-400">Tap to browse or drop an inspiration image here</p>
+                </div>
+            </div>
+
+            <!-- Material Selection Chips -->
+            <div class="space-y-3">
+                <h3 class="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-gray-500">Target Material</h3>
+                <div class="flex overflow-x-auto pb-4 gap-3 no-scrollbar">
+                    <button id="mat-wood" onclick="selectMaterial('wood')" class="flex-none px-6 py-2 rounded-full border border-[#D4AF37] bg-[#D4AF37]/10 text-[#D4AF37] text-xs font-bold uppercase tracking-wider cursor-pointer">Wood</button>
+                    <button id="mat-mdf" onclick="selectMaterial('mdf')" class="flex-none px-6 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 text-xs font-bold uppercase tracking-wider hover:border-white/30 transition-all cursor-pointer">MDF</button>
+                    <button id="mat-wpc" onclick="selectMaterial('wpc')" class="flex-none px-6 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 text-xs font-bold uppercase tracking-wider hover:border-white/30 transition-all cursor-pointer">WPC</button>
+                    <button id="mat-pvc" onclick="selectMaterial('pvc')" class="flex-none px-6 py-2 rounded-full border border-white/10 bg-white/5 text-gray-400 text-xs font-bold uppercase tracking-wider hover:border-white/30 transition-all cursor-pointer">PVC</button>
+                </div>
+            </div>
+
+            <button id="generate-btn" onclick="generateDesign()" class="w-full bg-[#D4AF37] text-[#3C2F00] font-black uppercase tracking-[0.2em] py-5 rounded-xl shadow-[0_10px_30px_rgba(212,175,55,0.2)] hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                <span class="material-symbols-outlined">auto_awesome</span> Generate Design
+            </button>
+        </section>
+
+        <!-- Result Preview Area (Initially Hidden until generation) -->
+        <section id="preview-section" class="space-y-6 hidden pt-4 border-t border-white/10">
+            <div class="flex items-center justify-between">
+                <h3 class="font-['Space_Grotesk'] text-[11px] uppercase tracking-widest text-[#D4AF37]">Generated Preview</h3>
+                <span class="text-[10px] text-gray-500 uppercase tracking-tighter">ID: CNC-AI-2044</span>
+            </div>
+
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-[#D4AF37]/20 to-transparent rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                <div class="relative glass-container rounded-2xl aspect-square overflow-hidden flex items-center justify-center bg-black/50">
+                    <img id="preview-image" alt="AI Generated Pattern" class="w-full h-full object-cover opacity-90 transition-opacity duration-500" src=""/>
+                    <!-- Image Overlay for Depth -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-40 pointer-events-none"></div>
+                    <div class="absolute bottom-6 left-6 pointer-events-none">
+                        <span class="bg-[#050505]/80 backdrop-blur-md px-3 py-1 rounded text-[10px] text-[#D4AF37] font-bold uppercase tracking-widest border border-[#D4AF37]/30">3D Simulation Ready</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="glass-container rounded-xl p-4">
+                    <span class="block text-[10px] text-gray-500 uppercase tracking-widest mb-1">Complexity</span>
+                    <span class="block text-xl font-['Space_Grotesk'] font-bold text-white">High</span>
+                </div>
+                <div class="glass-container rounded-xl p-4">
+                    <span class="block text-[10px] text-gray-500 uppercase tracking-widest mb-1">Est. Runtime</span>
+                    <span class="block text-xl font-['Space_Grotesk'] font-bold text-white">42 Min</span>
+                </div>
+            </div>
+
+            <button onclick="requestQuote()" class="w-full border border-[#D4AF37] text-[#D4AF37] font-bold uppercase tracking-[0.1em] py-4 rounded-xl hover:bg-[#D4AF37]/10 transition-all flex items-center justify-center gap-3">
+                <span class="material-symbols-outlined">request_quote</span> Request Quote for this Design
+            </button>
+        </section>
+    </div>
+</main>
+
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-[#050505]/40 backdrop-blur-xl border-t border-[#D4AF37]/25 shadow-[0_-8px_32px_rgba(0,0,0,0.5)] z-50 rounded-t-3xl md:hidden">
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="index.html">
+        <span class="material-symbols-outlined" data-icon="home">home</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Home</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="services.html">
+        <span class="material-symbols-outlined" data-icon="settings_input_component">settings_input_component</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Services</span>
+    </a>
+    <!-- Active State: Studio -->
+    <a class="flex flex-col items-center justify-center bg-[#D4AF37]/10 text-[#D4AF37] rounded-xl p-3 ring-1 ring-[#D4AF37]/30 transition-all active:scale-90 duration-200 ease-out" href="ai-studio.html">
+        <span class="material-symbols-outlined" data-icon="memory" style="font-variation-settings: 'FILL' 1;">memory</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Studio</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-gray-500 p-3 hover:bg-white/5 transition-all active:scale-90 duration-200 ease-out" href="contact.html">
+        <span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+        <span class="font-['Manrope'] text-[10px] uppercase tracking-[0.2em] mt-1">Contact</span>
+    </a>
+</nav>
+
+</body></html>
